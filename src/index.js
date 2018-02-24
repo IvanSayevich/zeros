@@ -1,19 +1,16 @@
 module.exports = function getZerosCount(number) {
-  let max = number;
-  let zeroCount = 0;
-  function sum(num){
-    let x = num;
-    if (x%5 === 0) {
-      zeroCount+=1;
-      x= x/5;
-      sum(x);  
+  let baseNumber = 5;
+  let i = 1;
+  let result = 0;
+  function sum(baseNumber,i){
+    if (Math.pow(baseNumber,i) <= number){
+      result += Math.floor(number/Math.pow(baseNumber,i));
+      i++;
+      sum(baseNumber,i);
     }
-
   }
-for (i=1;i<=max; i++){
-  sum(i);
-}
-  return zeroCount;
+  sum(baseNumber,i);
+  return result;
 }
 
 
